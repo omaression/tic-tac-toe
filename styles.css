@@ -1,0 +1,85 @@
+:root {
+    --font-btn: 'Lumanosimo', cursive;
+    --font-all: 'Poppins', sans-serif;
+
+    --container-width: 900px;
+
+    --color-100: #fafafa;
+    --color-200: #e5e5e5;
+    --color-300: #a3a3a3;
+    --color-400: #737373;
+    --color-500: #262626;
+    --color-600: #0a0a0a;
+
+    --fs-50: 0.825rem;
+    --fs-100: 1.125rem;
+    --fs-200: 1.25rem;
+    --fs-300: 1.5rem;
+    --fs-400: 1.75rem;
+    --fs-500: 2rem;
+    --fs-600: 2.25rem;
+
+    --pad-xs: 4px;
+    --pad-sm: 8px;
+    --pad-md: 18px;
+    --pad-lg: 32px;
+    --pad-xl: 48px;
+    
+    --border-radius-sm: 10px;
+    --border-radius-lg: 20px;
+
+    --shadow: rgba(0, 0, 0, 0.1) 0px 1px 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: var(--font-all);
+}
+
+html {
+    min-height: 100vh;
+    position: relative;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--pad-md);
+    font-size: var(--fs-200);
+
+    background: var(--color-500);
+    color: var(--color-100);
+    padding: var(--pad-md);
+
+}
+
+.footer .copyright {
+    margin-bottom: var(--pad-sm);
+}
+
+.github-icon {
+    height: 34px;
+}
+
+.footer .github:hover {
+    animation: rotate .75s ease-in-out;
+}
+
+@keyframes rotate {
+    0%,
+    100% {
+        rotate: 0deg;
+    }
+
+    50% {
+        rotate: 360deg;
+        transform: scale(1.2);
+    }
+}
