@@ -82,7 +82,7 @@ html {
 }
 
 .footer .copyright {
-    margin-bottom: var(--pad-sm);
+    margin-bottom: var(--pad-xs);
 }
 
 .github-icon {
