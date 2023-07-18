@@ -82,6 +82,30 @@ button {
     padding: var(--pad-md);
 }
 
+.container h1 {
+    font-size: var(--fs-600);
+    color: var(--color-600);
+    margin-bottom: var(--pad-sm);
+}
+
+.container .choose {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--pad-lg);
+}
+
+.container .choose button {
+    width: 4rem;
+    height: 2rem;
+    box-shadow: var(--shadow);
+
+    transition: all .2s ease-in-out;
+}
+
+.container .choose button:hover {
+    transform: scale(1.1);
+}
+
 .footer {
     position: absolute;
     bottom: 0;
