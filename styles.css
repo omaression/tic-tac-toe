@@ -45,6 +45,20 @@ html {
     font-size: 16px;
 }
 
+button {
+    font-size: var(--fs-200);
+    font-weight: bold;
+
+    cursor: pointer;
+
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius-sm);
+
+    background: var(--color-500);
+    color: var(--color-100);
+}
+
 .main {
     background: var(--color-200);
 
