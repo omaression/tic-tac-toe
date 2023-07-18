@@ -48,6 +48,7 @@ html {
 button {
     font-size: var(--fs-200);
     font-weight: bold;
+    font-family: var(--font-btn);
 
     cursor: pointer;
 
