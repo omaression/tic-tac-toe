@@ -123,11 +123,15 @@ button {
 
     border-radius: var(--border-radius-lg);
 
-    display: grid;
+    display: none;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--pad-md);
 
     background: var(--color-400);
+}
+
+.game-container.active {
+    display: grid;
 }
 
 .game-container button {
