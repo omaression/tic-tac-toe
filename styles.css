@@ -113,6 +113,11 @@ button {
     transform: scale(1.1);
 }
 
+.container .turn {
+    font-size: var(--fs-200);
+    font-style: italic;
+}
+
 
 /* GameBoard */
 .game-container {
