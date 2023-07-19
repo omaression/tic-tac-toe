@@ -32,6 +32,8 @@
     --shadow: rgba(0, 0, 0, 0.4) 0px 2px 8px;
 }
 
+
+/* Resetting */
 * {
     margin: 0;
     padding: 0;
@@ -40,6 +42,8 @@
     font-family: var(--font-all);
 }
 
+
+/* Footer Support and Utilities */
 html {
     min-height: 100vh;
     position: relative;
@@ -61,6 +65,8 @@ button {
     color: var(--color-100);
 }
 
+
+/* Main Page */
 .main {
     background: var(--color-200);
 
@@ -107,6 +113,39 @@ button {
     transform: scale(1.1);
 }
 
+
+/* GameBoard */
+.game-container {
+    width: var(--game-width);
+    height: var(--game-width);
+    margin-top: var(--pad-md);
+    padding: var(--pad-lg);
+
+    border-radius: var(--border-radius-lg);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--pad-md);
+
+    background: var(--color-400);
+}
+
+.game-container button {
+    font-size: var(--fs-500);
+    box-shadow: var(--shadow);
+    transition: all .3s ease-in-out;
+}
+
+.game-container button:hover {
+    transform: scale(.9);
+}
+
+.game-container button.win {
+    transform: scale(.9);
+}
+
+
+/* Footer */
 .footer {
     position: absolute;
     bottom: 0;
