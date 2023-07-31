@@ -101,6 +101,10 @@ button {
     gap: var(--pad-lg);
 }
 
+.container .choose.inactive {
+    display: none;
+}
+
 .container .choose button {
     width: 4rem;
     height: 2rem;
