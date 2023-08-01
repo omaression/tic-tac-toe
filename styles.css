@@ -122,17 +122,6 @@ button {
     font-style: italic;
 }
 
-.container .result {
-    font-size: var(--fs-200);
-    font-weight: bold;
-    display: none;
-}
-
-.container .result.active {
-    display: block;
-}
-
-
 /* GameBoard */
 .game-container {
     width: var(--game-width);
