@@ -90,6 +90,7 @@ button {
 }
 
 .container h1 {
+    font-family: var(--font-btn);
     font-size: var(--fs-600);
     color: var(--color-600);
     margin-bottom: var(--pad-sm);
