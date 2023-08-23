@@ -11,15 +11,66 @@ const Gameboard = () => {
 
     const getSign = (cellNo) => board[cellNo];
 
+    const reset = () => {
+        for (let i = 0; i < board.length; i++) {
+            board[i] = "-";
+        }
+    }
+
     return {
         getBoard,
         setSign,
-        getSign
+        getSign,
+        reset
     };
 }
 
 
-const GameController = (player = "X") => {
+const UIController = (() => {
+    const boardControlDiv = document.querySelector(".board-control");
+    const startBtn = document.querySelector("#beginBtn");
+    const resetBtn = document.querySelector("#resetBtn");
+    const turnDiv = document.querySelector(".turn");
+    const gameDiv = document.querySelector(".game-container");
+    const fieldElements = document.querySelectorAll(".field");
+
+    startBtn.addEventListener("click", () => {
+        updateBoard();
+        showBoard();
+    });
+
+    resetBtn.addEventListener("click", () => {
+        GameController.reset();
+        updateBoard();
+    })
+
+    function updateBoard() {
+
+        const activePlayer = GameController.getActivePlayer();
+        turnDiv.textContent = `Player ${activePlayer}'s turn...`;
+
+        for (let i = 0; i < fieldElements.length; i++) {
+            fieldElements[i].textContent = GameController.cell(i);
+        }
+    }
+
+    function showBoard() {
+        gameDiv.classList.add("active");
+        startBtn.classList.add("inactive");
+        resetBtn.classList.add("active");
+    }
+
+    fieldElements.forEach(field =>
+        field.addEventListener("click", (e) => {
+            if (e.target.textContent !== "-") return;
+
+            GameController.playRound(e.target.dataset.cell);
+            updateBoard();
+        }));
+})();
+
+
+const GameController = ((player = "X") => {
     const gameboard = Gameboard();
 
     const players = ["X", "O"];
@@ -38,54 +89,15 @@ const GameController = (player = "X") => {
         switchPlayer();
     }
 
+    const reset = () => {
+        gameboard.reset()
+        activePlayer = players[0];
+    }
+
     return {
         playRound,
         getActivePlayer,
+        reset,
         cell: gameboard.getSign
     };
-};
-
-
-const UIController = (() => {
-    let game = GameController();
-    const chooseDiv = document.querySelector(".choose");
-    const turnDiv = document.querySelector(".turn");
-    const gameDiv = document.querySelector(".game-container");
-    const fieldElements = document.querySelectorAll(".field");
-
-    chooseDiv.addEventListener("click", (e) => {
-        if (e.target.nodeName !== "BUTTON") return;
-
-        if (e.target.id === "choiceX") {
-            game = GameController("X");
-        } else if (e.target.id === "choiceO") {
-            game = GameController("O");
-        }
-
-        updateBoard();
-        showBoard();
-    });
-
-    function updateBoard() {
-
-        const activePlayer = game.getActivePlayer();
-        turnDiv.textContent = `Player ${activePlayer}'s turn...`;
-
-        for (let i = 0; i < fieldElements.length; i++) {
-            fieldElements[i].textContent = game.cell(i);
-        }
-    }
-
-    function showBoard() {
-        gameDiv.classList.add("active");
-        chooseDiv.classList.add("inactive");
-    }
-
-    fieldElements.forEach(field =>
-        field.addEventListener("click", (e) => {
-            if (e.target.textContent !== "-") return;
-
-            game.playRound(e.target.dataset.cell);
-            updateBoard();
-        }));
 })();

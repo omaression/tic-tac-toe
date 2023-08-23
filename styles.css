@@ -95,25 +95,33 @@ button {
     margin-bottom: var(--pad-sm);
 }
 
-.container .choose {
+.container .board-control {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
     gap: var(--pad-lg);
 }
 
-.container .choose.inactive {
+.container .board-control #beginBtn.inactive {
     display: none;
 }
 
-.container .choose button {
-    width: 4rem;
-    height: 2rem;
+.container .board-control #resetBtn {
+    display: none;
+}
+
+.container .board-control #resetBtn.active {
+    display: block;
+}
+
+.container .board-control button {
+    width: 6rem;
+    height: 2.5rem;
     box-shadow: var(--shadow);
 
     transition: all .2s ease-in-out;
 }
 
-.container .choose button:hover {
+.container .board-control button:hover {
     transform: scale(1.1);
 }
 
